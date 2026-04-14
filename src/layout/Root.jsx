@@ -13,8 +13,10 @@ const Root = () => {
     return (
         <div>
         <HomePage/>
-        <Friends/>
-        <Outlet/>
+        
+        <main>
+            <Outlet/>
+        </main>
         <Footer/>
         
         </div>

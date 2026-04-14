@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import { PropagateLoader } from 'react-spinners';
 
 const Friends = () => {
     const [friends, setFriends] = useState([]);
+
+    const [loading, setLoading] = useState(true)
 
 
     useEffect(()=> {
@@ -13,18 +16,29 @@ const Friends = () => {
             const data = await res.json()
             const friends = data.friends
             
-            setFriends(friends)
+                setFriends(friends)
+            setLoading(false)
+
+            
+            
         }
         fetchData()
     },[])
 
     console.log(friends)
+    console.log(loading)
     
     return (
 <div className="p-6 max-w-6xl mx-auto">
       <h1 className="text-3xl font-bold text-gray-900 mb-8">Your Friends</h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {loading ?
+      ( 
+        <div className='flex justify-center items-center'>
+            <PropagateLoader color='#244d3f'/>
+        </div>
+      ):( 
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
         {friends.map((friend) => {
         
           let statusColor = '';
@@ -38,7 +52,7 @@ const Friends = () => {
           return (
             <div 
               key={friend.id}
-              className="bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center text-center border border-gray-100"
+              className="bg-white rounded-3xl shadow-sm hover:shadow-xl  duration-300 p-6 flex flex-col items-center text-center border border-gray-100"
             >
               
               <div className="mb-5">
@@ -61,7 +75,7 @@ const Friends = () => {
 
               
               <div className="mb-4">
-                <span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-medium px-5 py-1.5 rounded-full font-semibold">
+                <span className="inline-block bg-emerald-100 text-emerald-700 text-xs  px-5 py-1.5 rounded-full font-semibold">
                   {friend.tags[0]}
                 </span>
               </div>
@@ -73,7 +87,7 @@ const Friends = () => {
             </div>
           );
         })}
-      </div>
+      </div>)}
     </div>
     );
 };

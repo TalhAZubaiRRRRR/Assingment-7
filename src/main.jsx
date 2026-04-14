@@ -6,10 +6,11 @@ import { RouterProvider } from 'react-router/dom'
 import { createBrowserRouter } from 'react-router'
 
 import Root from './layout/Root.jsx'
-import Friends from './pages/Fridends/Friends.jsx'
 import FriendDetails from './pages/FriendDetails/FriendDetails.jsx'
 import NotFound from './pages/NotFound/NotFound.jsx'
 import FriendsTimeLine from './pages/FrinedsTimeLine/FriendsTimeLine.jsx'
+import Friends from './pages/Fridends/Friends.jsx'
+import BodyPart from './components/BodyPart.jsx'
 
 
 
@@ -20,9 +21,10 @@ const router = createBrowserRouter([
     Component:Root,
     children:[
       {
-        path:"/Friends",
+        path:"/",
         element:<Friends/>
       },
+
       {
         path:"/FriendDetails",
         element:<FriendDetails></FriendDetails>
@@ -30,6 +32,10 @@ const router = createBrowserRouter([
       {
         path:'/timeline',
         element:<FriendsTimeLine/>
+      },
+      {
+        path:'/friends/:id',
+        element:<FriendDetails/>
       }
 
     ],
