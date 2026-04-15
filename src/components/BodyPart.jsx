@@ -1,4 +1,5 @@
 import React from 'react';
+import { Outlet } from 'react-router';
 
 const BodyPart = () => {
     return (
@@ -28,7 +29,7 @@ const BodyPart = () => {
           
           {/* Card 1 */}
           <div className="bg-white rounded-2xl shadow-sm p-6 text-center border border-gray-100 hover:shadow-md">
-            <div className="text-5xl font-bold text-gray-900 mb-1">10</div>
+            <div className="text-5xl font-bold text-gray-900 mb-1">6</div>
             <div className="text-gray-500 text-sm font-medium">Total Friends</div>
           </div>
 
@@ -51,7 +52,7 @@ const BodyPart = () => {
           </div>
 
         </div>
-
+        <Outlet/>
       </div>
     </div>
     );

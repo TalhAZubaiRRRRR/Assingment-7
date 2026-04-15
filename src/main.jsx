@@ -22,21 +22,23 @@ const router = createBrowserRouter([
     children:[
       {
         path:"/",
-        element:<Friends/>
+        element:<BodyPart/>,
+        children:[
+          {
+            index:true,
+            element:<Friends/>
+          }
+        ]
       },
-
-      {
-        path:"/FriendDetails",
-        element:<FriendDetails></FriendDetails>
+            {
+        path:'/friends/:id',
+        element:<FriendDetails/>
       },
       {
         path:'/timeline',
         element:<FriendsTimeLine/>
       },
-      {
-        path:'/friends/:id',
-        element:<FriendDetails/>
-      }
+
 
     ],
     errorElement:<NotFound/>
@@ -44,10 +46,12 @@ const router = createBrowserRouter([
 ])
 
 
+
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    
-    <RouterProvider router={router}/>
-    
+
+    <RouterProvider router={router} />
+
   </StrictMode>,
 )
