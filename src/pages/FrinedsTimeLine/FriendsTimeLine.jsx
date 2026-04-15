@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { FriendsContext } from '../../context/FriendsProvider';
 
 const FriendsTimeLine = () => {
-    return (
-        <div>
-            <h1>this is the timeline</h1>
-        </div>
-    );
+    const FriendsContextData = useContext(FriendsContext)
+    console.log(FriendsContextData)
 };
 
 export default FriendsTimeLine;

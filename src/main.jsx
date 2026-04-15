@@ -11,6 +11,7 @@ import NotFound from './pages/NotFound/NotFound.jsx'
 import FriendsTimeLine from './pages/FrinedsTimeLine/FriendsTimeLine.jsx'
 import Friends from './pages/Fridends/Friends.jsx'
 import BodyPart from './components/BodyPart.jsx'
+import FriendContextProvider from './context/FriendContext.jsx'
 
 
 
@@ -51,7 +52,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
 
-    <RouterProvider router={router} />
+    <FriendContextProvider>
+      <RouterProvider router={router} />
 
+    </FriendContextProvider>
   </StrictMode>,
 )
