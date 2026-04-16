@@ -1,15 +1,23 @@
+import { useState } from "react";
 import { FriendsContext } from "./FriendsProvider";
 
 
 const FriendContextProvider = ({children}) => {
 
-    const friend = {
-        name: "tallha",
-        age:20
+    const [friendTimelineBtn , setFriendTimelineBtn] = useState([])
+
+    const friendsData = {
+
+        friendTimelineBtn,
+        setFriendTimelineBtn,
+        
     }
 
-    return <FriendsContext.Provider value={friend}>{children}</FriendsContext.Provider>
-
+    return (
+        <FriendsContext.Provider value={friendsData}>
+            {children}
+        </FriendsContext.Provider>
+    )
 };
 
 export default FriendContextProvider;

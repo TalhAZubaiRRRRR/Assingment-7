@@ -10,7 +10,8 @@
       "tags": ["college", "close friend"],
       "bio": "My best friend from university. We used to study all night and explore new cafes together.",
       "goal": 14,
-      "next_due_date": "2026-04-20"
+      "next_due_date": "2026-04-20",
+      "call": "March-25"
     },
     {
       "id": 2,
@@ -22,7 +23,8 @@
       "tags": ["work", "cricket"],
       "bio": "Colleague and cricket buddy. We always motivate each other during tough projects.",
       "goal": 30,
-      "next_due_date": "2026-05-10"
+      "next_due_date": "2026-05-10",
+      "call": "August-25"
     },
     {
       "id": 3,
@@ -34,7 +36,8 @@
       "tags": ["school", "sister-like"],
       "bio": "Childhood best friend. She knows all my secrets and still supports me unconditionally.",
       "goal": 14,
-      "next_due_date": "2026-04-25"
+      "next_due_date": "2026-04-25",
+      "call": "February-25"
     },
     {
       "id": 4,
@@ -46,7 +49,8 @@
       "tags": ["gym", "motivation"],
       "bio": "Gym partner and mindset mentor. We push each other to become better versions of ourselves.",
       "goal": 21,
-      "next_due_date": "2026-04-15"
+      "next_due_date": "2026-04-15",
+      "call": "April-25"
     },
     {
       "id": 5,
@@ -58,7 +62,8 @@
       "tags": ["design", "friend"],
       "bio": "Creative partner and fellow designer. We share ideas and give honest feedback on our work.",
       "goal": 10,
-      "next_due_date": "2026-05-05"
+      "next_due_date": "2026-05-05",
+      "call": "September-25"
     },
     {
       "id": 6,
@@ -70,7 +75,9 @@
       "tags": ["neighbor", "foodie"],
       "bio": "My next-door neighbor. We often cook together and talk about life, career, and dreams.",
       "goal": 14,
-      "next_due_date": "2026-04-28"
+      "next_due_date": "2026-04-28",
+      "call": "May-25"
     }
   ]
+
 }

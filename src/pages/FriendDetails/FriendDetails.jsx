@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaVideo } from 'react-icons/fa';
 import { IoIosArchive, IoMdText } from 'react-icons/io';
 import { IoVideocamOutline } from 'react-icons/io5';
@@ -7,8 +7,10 @@ import { MdDelete } from 'react-icons/md';
 import { VscCopilotSnooze } from 'react-icons/vsc';
 import { useParams } from 'react-router';
 import { ClimbingBoxLoader, PropagateLoader } from 'react-spinners';
+import { FriendsContext } from '../../context/FriendsProvider';
 
 const FriendDetails = () => {
+    
     const { id } = useParams();
     
     const [friends, setFriends] = useState([]);
@@ -26,6 +28,11 @@ const FriendDetails = () => {
     // Find the friend
     const currentFriend = friends.find((friend) => friend.id === Number(id));
 
+
+    
+    const {friendTimelineBtn , setFriendTimelineBtn} = useContext(FriendsContext)
+
+
     // Show loading while data is not ready
     if (!currentFriend) {
         return <div className="text-center h-[70vh] flex items-center text-4xl font-bold text-white bg-emerald-700 italic justify-center">
@@ -41,6 +48,28 @@ const FriendDetails = () => {
             </div>
         </div>;
     }
+
+    const handleFriendBtn = (type) => {
+
+        let iconComponent;
+
+    if (type === "Call") {
+        iconComponent = <LuPhoneCall />;
+    } else if (type === "Text") {
+        iconComponent = <IoMdText />;
+    } else if (type === "Video Call") {
+        iconComponent = <IoVideocamOutline />;
+    }
+        
+        const newEntry = {
+            id: Date.now(),
+            name:currentFriend.name,
+            type:type,
+            icon: iconComponent
+        }
+        setFriendTimelineBtn([...friendTimelineBtn,newEntry,currentFriend])
+    }
+    console.log(friendTimelineBtn)
 
     
 
@@ -125,13 +154,19 @@ const FriendDetails = () => {
                     <div className="bg-white rounded-3xl p-6 shadow">
                         <h3 className="font-semibold text-lg mb-5">Quick Check-In</h3>
                         <div className="grid grid-cols-3 gap-4">
-                            <button className="flex flex-col items-center gap-2 p-6 hover:bg-gray-50 rounded-2xl shadow shadow-gray-300">
+                            <button
+                            onClick={() => handleFriendBtn("Call")}
+                             className="flex flex-col items-center gap-2 p-6 hover:bg-gray-50 rounded-2xl shadow shadow-gray-300">
                                 <LuPhoneCall/> Call
                             </button>
-                            <button className="flex flex-col items-center gap-2 p-6 hover:bg-gray-50 rounded-2xl shadow shadow-gray-300 ">
+                            <button 
+                            onClick={() => handleFriendBtn("Text")}
+                            className="flex flex-col items-center gap-2 p-6 hover:bg-gray-50 rounded-2xl shadow shadow-gray-300 ">
                                 <IoMdText/> Text
                             </button>
-                            <button className="flex flex-col items-center gap-2 p-6 hover:bg-gray-50 rounded-2xl shadow shadow-gray-300">
+                            <button
+                            onClick={() => handleFriendBtn("Video Call")}
+                             className="flex flex-col items-center gap-2 p-6 hover:bg-gray-50 rounded-2xl shadow shadow-gray-300">
                                 <IoVideocamOutline/> Video
                             </button>
                         </div>
