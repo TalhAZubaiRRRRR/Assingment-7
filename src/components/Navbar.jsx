@@ -47,7 +47,7 @@ const Navbar = () => {
             </NavLink>
 
             <NavLink
-              to="/stats"
+              to="/chart"
               className={({ isActive }) =>
                 `flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium transition-all ${
                   isActive 

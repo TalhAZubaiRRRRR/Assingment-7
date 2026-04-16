@@ -12,6 +12,7 @@ import FriendsTimeLine from './pages/FrinedsTimeLine/FriendsTimeLine.jsx'
 import Friends from './pages/Fridends/Friends.jsx'
 import BodyPart from './components/BodyPart.jsx'
 import FriendContextProvider from './context/FriendContext.jsx'
+import FriendsChart from './pages/FriendsChat/FriendsChart.jsx'
 
 
 
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         path:'/timeline',
         element:<FriendsTimeLine/>
       },
+      {
+        path:"/chart",
+        element:<FriendsChart/>
+      }
 
 
     ],
