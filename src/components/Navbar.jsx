@@ -15,48 +15,48 @@ const Navbar = () => {
             Keen<span className="text-[#244d3f]">Keeper</span>
           </div>
 
-          {/* Navigation using NavLink */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          
+          <div className="flex items-center gap-1 sm:gap-2">
             
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium transition-all ${
+                `flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-3 rounded-2xl text-sm font-medium transition-all ${
                   isActive 
                     ? 'bg-[#244d3f] text-white shadow-md' 
                     : 'text-gray-600 hover:bg-gray-100'
                 }`
               }
             >
-              <IoMdHome className="text-2xl" />
+              <IoMdHome className="text-xl sm:text-2xl" />
               <span className="hidden sm:inline">Home</span>
             </NavLink>
 
             <NavLink
-              to="timeline"
+              to="/timeline"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium transition-all ${
+                `flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-3 rounded-2xl text-sm font-medium transition-all ${
                   isActive 
                     ? 'bg-[#244d3f] text-white shadow-md' 
                     : 'text-gray-600 hover:bg-gray-100'
                 }`
               }
             >
-              <CiClock2 className="text-2xl" />
+              <CiClock2 className="text-xl sm:text-2xl" />
               <span className="hidden sm:inline">Timeline</span>
             </NavLink>
 
             <NavLink
               to="/chart"
               className={({ isActive }) =>
-                `flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium transition-all ${
+                `flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-3 rounded-2xl text-sm font-medium transition-all ${
                   isActive 
                     ? 'bg-[#244d3f] text-white shadow-md' 
                     : 'text-gray-600 hover:bg-gray-100'
                 }`
               }
             >
-              <GoGraph className="text-2xl" />
+              <GoGraph className="text-xl sm:text-2xl" />
               <span className="hidden sm:inline">Stats</span>
             </NavLink>
 
