@@ -1,21 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Legend, Pie, PieChart, Tooltip } from 'recharts';
 import { FriendsContext } from '../../context/FriendsProvider';
 
 const FriendsChart = () => {
     const { friendTimelineBtn } = useContext(FriendsContext)
 
-    const [friends, setFriends] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch('/friends.json');
-            const data = await res.json();
-            const allFriends = data.friends;
-            setFriends(allFriends);
-        };
-        fetchData();
-    }, []);
     
     const callCount = friendTimelineBtn.filter(item => item.type === 'Call').length
     const textCount = friendTimelineBtn.filter(item => item.type === "Text").length;
